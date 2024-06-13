@@ -1,0 +1,16 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/wp-admin/",
+	"steps": [
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "vip-layout-blocks"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require_once 'wp-load.php'; global $wp_rewrite; $wp_rewrite->set_permalink_structure('/%postname%/'); $wp_rewrite->flush_rules();"
+		}
+	]
+}

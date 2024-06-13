@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vip-layout-blocks/highlight",
+	"parent": [ "vip-layout-blocks/highlights-layout" ],
+	"allowedBlocks": [
+		"vip-composable-blocks/product",
+		"vip-composable-blocks/content",
+		"core/image"
+	],
+	"version": "0.1.0",
+	"title": "Highlight",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "vip-layout",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
