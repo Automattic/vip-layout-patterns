@@ -32,6 +32,9 @@ const variations = [
 		),
 		innerBlocks: [ [ 'vip-layout-blocks/highlight' ] ],
 		scope: [ 'block' ],
+		attributes: {
+			className: 'hero-layout-container',
+		}
 	},
 	{
 		name: 'large-portrait',
@@ -54,6 +57,9 @@ const variations = [
 		isDefault: true,
 		innerBlocks: [ [ 'vip-layout-blocks/highlight' ], [ 'vip-layout-blocks/highlight' ] ],
 		scope: [ 'block' ],
+		attributes: {
+			className: 'large-portrait-layout-container',
+		}
 	},
 	{
 		name: 'large-two',
@@ -81,6 +87,9 @@ const variations = [
 			[ 'vip-layout-blocks/highlight', { width: '66.66%' } ],
 		],
 		scope: [ 'block' ],
+		attributes: {
+			className: 'large-two-layout-container',
+		}
 	},
 	{
 		name: 'large-four',
@@ -111,6 +120,9 @@ const variations = [
 			[ 'vip-layout-blocks/highlight', { width: '33.33%' } ],
 		],
 		scope: [ 'block' ],
+		attributes: {
+			className: 'large-four-layout-container',
+		}
 	},
 ];
 

@@ -18,9 +18,8 @@ import {
 	__experimentalBlockVariationPicker,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
-import { useDispatch, useSelect, useRegistry } from '@wordpress/data';
+import { useDispatch, useSelect } from '@wordpress/data';
 import {
-	createBlock,
 	createBlocksFromInnerBlocksTemplate,
 	store as blocksStore,
 } from '@wordpress/blocks';
@@ -80,38 +79,16 @@ function Placeholder( { clientId, name, setAttributes } ) {
 }
 
 const HighlightsLayoutEditContainer = ( props ) => {
-	const { columnsIds, hasChildBlocks, rootClientId } = useSelect(
-		( select ) => {
-			const { getBlockOrder, getBlockRootClientId } =
-				select( blockEditorStore );
-
-			const rootId = getBlockRootClientId( props.clientId );
-
-			return {
-				hasChildBlocks: getBlockOrder( props.clientId ).length > 0,
-				rootClientId: rootId,
-				columnsIds: getBlockOrder( rootId ),
-			};
-		},
-		[ props.clientId ]
-	);
-
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
+		blockProps,
 		{
-			className: 'large-four',
-		},
-		{
-			renderAppender: hasChildBlocks
-				? undefined
-				: InnerBlocks.ButtonBlockAppender,
+			renderAppender: false,
 		}
 	);
 
 	return (
-		<div { ...blockProps }>
-			<div { ...innerBlocksProps } />
-		</div>
+		<div { ...innerBlocksProps } />
 	);
 };
 

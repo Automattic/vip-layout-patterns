@@ -10,3 +10,13 @@
 	padding: 2px;
 }
 
+.large-four-layout-container {
+	display: grid;
+	grid-template-columns: 2fr 1fr; /* 2fr for large block, 1fr for small blocks column */
+	grid-template-rows: repeat(4, auto); /* create four equal rows */
+	gap: 10px; /* add gap if needed */
+}
+
+.large-four-layout-container :first-child {
+	grid-row: span 4; /* large block will span across 4 rows */
+}

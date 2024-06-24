@@ -18,6 +18,14 @@ import {
 import { useSelect, useDispatch } from '@wordpress/data';
 import { sprintf, __ } from '@wordpress/i18n';
 
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+; */
+import './editor.scss'
+
 function HighlightEdit( {
 	attributes: { verticalAlignment, width, templateLock, allowedBlocks },
 	setAttributes,
@@ -74,18 +82,18 @@ function HighlightEdit( {
 	);
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{ ...blockProps, 'aria-label': label },
+		{ ...blockProps, 'aria-label': label, className: 'highlight' },
 		{
-			templateLock,
-			allowedBlocks: allowedBlocks ?? [
-				'vip-composable-blocks/content',
-				'vip-composable-blocks/product',
-			],
-			renderAppender: hasChildBlocks
-				? undefined
-				: InnerBlocks.ButtonBlockAppender,
+			// templateLock,
+			// allowedBlocks: allowedBlocks ?? [
+			// 	'vip-composable-blocks/content',
+			// 	'vip-composable-blocks/product',
+			// ],
+			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	console.log( 'Highlight innerBlocksProps: ', innerBlocksProps );
 
 	return (
 		<>
