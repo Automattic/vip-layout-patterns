@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 /**
  * WordPress dependencies
  */
@@ -37,21 +38,38 @@ function HighlightEdit( {
 		availableUnits: [ '%', 'px', 'em', 'rem', 'vw' ],
 	} );
 
-	const { columnsIds, hasChildBlocks, rootClientId } = useSelect(
+	const { columnsIds, rootClientId, childBlocksNames } = useSelect(
 		( select ) => {
-			const { getBlockOrder, getBlockRootClientId } =
+			const { getBlockOrder, getBlockRootClientId, getBlock } =
 				select( blockEditorStore );
 
 			const rootId = getBlockRootClientId( clientId );
+			const childClientIds = getBlockOrder( clientId );
+			const childBlocksNames = childClientIds.map( ( id ) => getBlock( id )?.name );
 
 			return {
-				hasChildBlocks: getBlockOrder( clientId ).length > 0,
 				rootClientId: rootId,
 				columnsIds: getBlockOrder( rootId ),
+				childBlocksNames,
 			};
 		},
 		[ clientId ]
 	);
+
+	/**
+	 * Only allow one inner block except for image blocks when it can add another one block
+	 */
+	const renderAppender = useMemo(() => {
+		if (
+			childBlocksNames.length === 0 ||
+			(childBlocksNames.length === 1 &&
+				childBlocksNames[0] === 'core/image')
+		) {
+			return InnerBlocks.ButtonBlockAppender;
+		}
+
+		return false;
+	}, [ childBlocksNames ]);
 
 	const { updateBlockAttributes } = useDispatch( blockEditorStore );
 
@@ -84,16 +102,9 @@ function HighlightEdit( {
 	const innerBlocksProps = useInnerBlocksProps(
 		{ ...blockProps, 'aria-label': label, className: 'highlight' },
 		{
-			// templateLock,
-			// allowedBlocks: allowedBlocks ?? [
-			// 	'vip-composable-blocks/content',
-			// 	'vip-composable-blocks/product',
-			// ],
-			renderAppender: InnerBlocks.ButtonBlockAppender,
+			renderAppender,
 		}
 	);
-
-	console.log( 'Highlight innerBlocksProps: ', innerBlocksProps );
 
 	return (
 		<>
