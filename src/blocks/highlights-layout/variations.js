@@ -122,7 +122,8 @@ const variations = [
 		scope: [ 'block' ],
 		attributes: {
 			className: 'large-four-layout-container',
-		}
+			supportsCustomHeight: true,
+		},
 	},
 ];
 

@@ -12,17 +12,24 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import {
-	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalBlockVariationPicker,
 	store as blockEditorStore,
+	InspectorControls,
 } from '@wordpress/block-editor';
 import { useDispatch, useSelect } from '@wordpress/data';
 import {
 	createBlocksFromInnerBlocksTemplate,
 	store as blocksStore,
 } from '@wordpress/blocks';
+import {
+	__experimentalUseCustomUnits as useCustomUnits,
+	PanelBody,
+	__experimentalUnitControl as UnitControl,
+} from '@wordpress/components';
+
+import { isValidPositiveNumber } from '../../utils/number'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -78,17 +85,63 @@ function Placeholder( { clientId, name, setAttributes } ) {
 	);
 }
 
-const HighlightsLayoutEditContainer = ( props ) => {
-	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(
-		blockProps,
-		{
-			renderAppender: false,
-		}
-	);
+const HighlightsLayoutEditContainerInspectorControls = ( { attributes, setAttributes } ) => {
+	const units = useCustomUnits( {
+		availableUnits: ['%', 'px', 'em', 'rem', 'vw'],
+	} );
+
+	const controls = [];
+
+	if ( attributes.supportsCustomHeight ) {
+		controls.push(
+			<UnitControl
+				label={ __( 'Height', 'vip-layout' ) }
+				labelPosition="edge"
+				value={ attributes.height }
+				__unstableInputWidth="80px"
+				onChange={ ( nextHeight, extra ) => {
+					nextHeight =
+						isValidPositiveNumber( nextHeight )
+							? '0px'
+							: nextHeight;
+					setAttributes( { height: nextHeight } );
+				} }
+				units={ units }
+			/>
+		);
+	}
+
+	if ( ! controls.length ) {
+		return null;
+	}
 
 	return (
-		<div { ...innerBlocksProps } />
+		<InspectorControls>
+			<PanelBody title={ __( 'Settings', 'vip-layout' ) }>
+				{ controls }
+			</PanelBody>
+		</InspectorControls>
+	);
+}
+
+const HighlightsLayoutEditContainer = ( { attributes, setAttributes } ) => {
+	const blockProps = useBlockProps( {
+		style: {
+			height: attributes.height === '0px' ? 'auto' : attributes.height,
+		}
+	} );
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+		renderAppender: false,
+	});
+
+	return (
+		<>
+			<HighlightsLayoutEditContainerInspectorControls
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
+			<div {...innerBlocksProps} />
+		</>
 	);
 };
 

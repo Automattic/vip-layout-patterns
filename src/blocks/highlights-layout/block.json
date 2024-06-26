@@ -14,6 +14,16 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"supportsCustomHeight": {
+			"type": "boolean",
+			"default": false
+		},
+		"height": {
+			"type": "string",
+			"default": "0px"
+		}
+	},
 	"textdomain": "vip-layout",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
