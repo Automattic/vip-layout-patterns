@@ -127,11 +127,11 @@ const HighlightsLayoutEditContainerInspectorControls = ( { attributes, setAttrib
 
 const HighlightsLayoutEditContainer = ( { attributes, setAttributes } ) => {
 	const blockProps = useBlockProps( {
-		style: getStylesFromAttributes( attributes ),
+		style: getStylesFromAttributes(attributes),
 	} );
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		renderAppender: false,
-	});
+	} );
 
 	return (
 		<>
