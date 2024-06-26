@@ -17,6 +17,15 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"lock": {
+			"type": "object",
+			"default": {
+				"remove": true,
+				"move": true
+			}
+		}
+	},
 	"textdomain": "vip-layout",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
