@@ -100,7 +100,7 @@ function HighlightEdit( {
 	);
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{ ...blockProps, 'aria-label': label, className: 'highlight' },
+		{ 'aria-label': label, ...blockProps },
 		{
 			renderAppender,
 		}
