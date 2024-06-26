@@ -6,6 +6,8 @@
  */
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
+import { getStylesFromAttributes } from './utils';
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -16,7 +18,9 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( props ) {
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save( {
+		style: getStylesFromAttributes( props.attributes ),
+	} );
 
 	return (
 		<div { ...blockProps }>

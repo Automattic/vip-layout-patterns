@@ -15,8 +15,16 @@
 	grid-template-columns: 2fr 1fr; /* 2fr for large block, 1fr for small blocks column */
 	grid-template-rows: repeat(4, 1fr); /* create four equal rows */
 	gap: 16px; /* add gap if needed */
+	height: 100%;
 }
 
 .large-four-layout-container :first-child {
 	grid-row: span 4; /* large block will span across 4 rows */
+}
+
+.large-four-layout-container .wp-block-vip-layout-blocks-highlight {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

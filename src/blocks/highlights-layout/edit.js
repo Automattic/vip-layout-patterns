@@ -29,6 +29,7 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
+import { getStylesFromAttributes } from './utils';
 import { isValidPositiveNumber } from '../../utils/number'
 
 /**
@@ -126,9 +127,7 @@ const HighlightsLayoutEditContainerInspectorControls = ( { attributes, setAttrib
 
 const HighlightsLayoutEditContainer = ( { attributes, setAttributes } ) => {
 	const blockProps = useBlockProps( {
-		style: {
-			height: attributes.height === '0px' ? 'auto' : attributes.height,
-		}
+		style: getStylesFromAttributes( attributes ),
 	} );
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		renderAppender: false,

@@ -32,7 +32,7 @@ function HighlightEdit( {
 	setAttributes,
 	clientId,
 } ) {
-	const classes = 'block-core-columns';
+	const classes = 'highlight-container';
 
 	const units = useCustomUnits( {
 		availableUnits: [ '%', 'px', 'em', 'rem', 'vw' ],
