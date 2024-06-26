@@ -13,8 +13,8 @@
 .large-four-layout-container {
 	display: grid;
 	grid-template-columns: 2fr 1fr; /* 2fr for large block, 1fr for small blocks column */
-	grid-template-rows: repeat(4, auto); /* create four equal rows */
-	gap: 10px; /* add gap if needed */
+	grid-template-rows: repeat(4, 1fr); /* create four equal rows */
+	gap: 16px; /* add gap if needed */
 }
 
 .large-four-layout-container :first-child {
