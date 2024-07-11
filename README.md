@@ -1,5 +1,5 @@
-# WPVIP Layouts
+# WPVIP Layout Patterns
 
-WPVIP Layouts is a plugin that brings an assortment of enterprise-grade layout to your editor via thoughtful block patterns.
+WPVIP Layout Patterns is a plugin that brings an assortment of enterprise-grade layouts to your editor via thoughtful block patterns.
 
 `npm start` to get started!
