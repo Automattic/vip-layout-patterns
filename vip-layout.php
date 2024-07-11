@@ -19,8 +19,7 @@ if (!defined("ABSPATH")) {
     exit(); // Exit if accessed directly.
 }
 
-function register_vip_block_patterns()
-{
+add_action('init', function () {
     $pattern_names = array(
         'large-four',
     );
@@ -38,5 +37,18 @@ function register_vip_block_patterns()
             'description' => __('Patterns that layout parts of the page.', 'vip-layout'),
         )
     );
-}
-add_action("init", 'VIP_Layout\register_vip_block_patterns');
+
+    register_block_style('core/cover', array(
+        'name'         => 'full-link',
+        'label'        => 'Link',
+        'inline_style' => '.wp-block-cover.is-style-full-link a:after {
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            content:"";
+        }'
+    ));
+});
