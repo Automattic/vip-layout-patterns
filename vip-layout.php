@@ -6,7 +6,7 @@
  * Description: WordPress VIP Plugin for layout blocks
  * Author: WordPress VIP
  * Text Domain: vip-layout
- * Version: 0.1.0
+ * Version: 0.2.0
  * Requires at least: 6.1
  * Requires PHP: 8.0
  *
@@ -15,13 +15,28 @@
 
 namespace VIP_Layout;
 
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+if (!defined("ABSPATH")) {
+    exit(); // Exit if accessed directly.
 }
 
-function register_vip_layout_blocks()
+function register_vip_block_patterns()
 {
-    register_block_type(__DIR__ . '/build/blocks/highlight');
-    register_block_type(__DIR__ . '/build/blocks/highlights-layout');
+    $pattern_names = array(
+        'large-four',
+    );
+
+    foreach ($pattern_names as $pattern_name) {
+        $pattern           = require __DIR__ . '/src/block-patterns/' . $pattern_name . '.php';
+        $pattern['source'] = 'vip-layout';
+        register_block_pattern('vip-layout/' . $pattern_name, $pattern);
+    }
+
+    register_block_pattern_category(
+        'layout',
+        array(
+            'label'       => _x('Layout', 'Block pattern category', 'vip-layout'),
+            'description' => __('Patterns that layout parts of the page.', 'vip-layout'),
+        )
+    );
 }
-add_action('init', 'VIP_Layout\register_vip_layout_blocks');
+add_action("init", 'VIP_Layout\register_vip_block_patterns');

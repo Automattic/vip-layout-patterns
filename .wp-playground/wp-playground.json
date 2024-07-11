@@ -3,6 +3,12 @@
 	"landingPage": "/wp-admin/",
 	"steps": [
 		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"WP_DEBUG": true
+			}
+		},
+		{
 			"step": "setSiteOptions",
 			"options": {
 				"blogname": "vip-layout-blocks"

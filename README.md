@@ -1,5 +1,5 @@
-# WPVIP Layout Blocks
+# WPVIP Layouts
 
-WPVIP Layout Blocks is a plugin that brings an assortment of enterprise-grade layout so you can get your content to your customers your way.
+WPVIP Layouts is a plugin that brings an assortment of enterprise-grade layout to your editor via thoughtful block patterns.
 
 `npm start` to get started!
