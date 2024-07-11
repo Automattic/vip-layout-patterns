@@ -6,7 +6,7 @@
 	"license": "GPL-2.0-or-later",
 	"files": [
 		"src/",
-		"vip-layout.php"
+		"vip-layout-patterns.php"
 	],
 	"scripts": {
 		"start": "npx @wp-now/wp-now start --blueprint='.wp-playground/wp-playground.json'"
