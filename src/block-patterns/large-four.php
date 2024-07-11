@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'title'      => __('Large Four', 'vip-layout'),
-    'description' => __('Two columns, one large space on left, four rows on right.', 'vip-layout'),
+    'title'      => __('Large Four', 'vip-layout-patterns'),
+    'description' => __('Two columns, one large space on left, four rows on right.', 'vip-layout-patterns'),
     'blockTypes' => [
         'core/image',
         'vip-cb/context-container',

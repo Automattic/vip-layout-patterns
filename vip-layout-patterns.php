@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Plugin Name: VIP Layout Blocks
- * Plugin URI: https://github.com/Automattic/vip-layout-blocks
- * Description: WordPress VIP Plugin for layout blocks
+ * Plugin Name: VIP Layout Patterns
+ * Plugin URI: https://github.com/Automattic/vip-layout-patterns
+ * Description: WordPress VIP Layout Patterns plugin
  * Author: WordPress VIP
  * Text Domain: vip-layout
  * Version: 0.2.0
  * Requires at least: 6.1
  * Requires PHP: 8.0
  *
- * @package vip-layout-blocks
+ * @package vip-layout-patterns
  */
 
 namespace VIP_Layout;

@@ -1,7 +1,7 @@
 {
-	"name": "vip-layout-blocks",
+	"name": "vip-layout-patterns",
 	"version": "0.2.0",
-	"description": "WPVIP Layouts plugin",
+	"description": "WPVIP Layout Patterns plugin",
 	"author": "WPVIP",
 	"license": "GPL-2.0-or-later",
 	"files": [
