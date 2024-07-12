@@ -1,24 +1,17 @@
 {
-	"name": "vip-layout-blocks",
-	"version": "0.1.0",
-	"description": "WPVIP Layout Blocks plugin",
+	"name": "vip-layout-patterns",
+	"version": "0.2.0",
+	"description": "WPVIP Layout Patterns plugin",
 	"author": "WPVIP",
 	"license": "GPL-2.0-or-later",
 	"files": [
-		"build/",
-		"vip-layout.php"
+		"src/",
+		"vip-layout-patterns.php"
 	],
 	"scripts": {
-		"build": "wp-scripts build",
-		"format": "wp-scripts format",
-		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
-		"packages-update": "wp-scripts packages-update",
-		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "./bin/start.sh"
+		"start": "npx @wp-now/wp-now start --blueprint='.wp-playground/wp-playground.json'"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^27.9.0",
-		"@wp-now/wp-now": "^0.1.72"
+		"@wp-now/wp-now": "^0.1.73"
 	}
 }
