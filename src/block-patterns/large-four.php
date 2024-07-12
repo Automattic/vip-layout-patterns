@@ -4,8 +4,8 @@ return [
     'title'      => __('Large Four', 'vip-layout'),
     'description' => __('Two columns, one large space on left, four rows on right.', 'vip-layout'),
     'categories' => ['layout'],
-    'keywords' => ['large', 'four'],
-    'viewportWidth' => 960,
+    'keywords' => ['large', 'four', 'news'],
+    'viewportWidth' => 1280,
     'content'    => '
         <!-- wp:group {"align":"wide","layout":{"type":"constrained","contentSize":"960px"}} -->
         <div class="wp-block-group alignwide"><!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->

@@ -19,7 +19,8 @@ if (!defined("ABSPATH")) {
     exit(); // Exit if accessed directly.
 }
 
-add_action('init', function () {
+function register_vip_layout_patterns()
+{
     $pattern_names = array(
         'large-four',
     );
@@ -34,7 +35,7 @@ add_action('init', function () {
         'layout',
         array(
             'label'       => _x('Layout', 'Block pattern category', 'vip-layout'),
-            'description' => __('Patterns that layout parts of the page.', 'vip-layout'),
+            'description' => __('Pattern layouts for parts of the page.', 'vip-layout'),
         )
     );
 
@@ -51,4 +52,5 @@ add_action('init', function () {
             content:"";
         }'
     ));
-});
+}
+add_action('init', 'VIP_Layout\register_vip_layout_patterns');
