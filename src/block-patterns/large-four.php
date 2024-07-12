@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title'      => __('Large Four', 'vip-layout'),
+    'title'      => _x('Large Four', 'Block pattern with two columns, one large space on left, four rows on right.', 'vip-layout'),
     'description' => __('Two columns, one large space on left, four rows on right.', 'vip-layout'),
     'categories' => ['layout'],
     'keywords' => ['large', 'four', 'news'],
